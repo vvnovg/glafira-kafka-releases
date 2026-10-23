@@ -16,27 +16,9 @@ Glafira 可在 macOS 11 或更新版本上執行。請從發行頁面下載安�
 
 也可以使用 `.pkg` 安裝程式，它會把應用程式安裝到 `/Applications`，供所有使用者使用。
 
-Beta 版的 build 尚未經過 Apple 簽署，因此 macOS 會封鎖第一次啟動。若要允許啟動：
+這些 build 已由 Apple 簽署並經過公證，因此應用程式可直接開啟，不會出現安全性警告。
 
-1. 先嘗試開啟應用程式一次，然後關閉警告。
-2. 開啟「系統設定」→「隱私權與安全性」。
-3. 向下捲動到與 Glafira for Apache Kafka 有關的訊息，按一下「強制打開」。如果系統要求，請輸入密碼確認。
-
-在 macOS 14 及更早版本上，也可以在應用程式上按右鍵，選擇「打開」，然後再按一次「打開」。
-
-如果這樣仍無效，請在「終端機」中執行一次以下指令，移除隔離標記：
-
-```bash
-xattr -dr com.apple.quarantine "/Applications/Glafira for Apache Kafka.app"
-```
-
-如果下載的 `.dmg` 本身打不開，請先移除它的標記：
-
-```bash
-xattr -d com.apple.quarantine ~/Downloads/Glafira_for_Apache_Kafka_*.dmg
-```
-
-從應用程式內安裝的更新不需要這些步驟。
+如果 macOS 仍提示應用程式已損毀或無法驗證，表示下載的檔案已受損：請從發行頁面重新下載 `.dmg` 或 `.pkg` 檔案。
 
 <a id="install-windows"></a>
 

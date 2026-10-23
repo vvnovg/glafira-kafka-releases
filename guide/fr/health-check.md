@@ -49,6 +49,17 @@ Un assistant LLM connecté par MCP (voir [Assistants LLM (MCP)](llm-mcp.md#how-i
 - **Supprimer** supprime une remarque, **Supprimer toutes les remarques LLM** supprime toutes les remarques de la connexion.
 - Une remarque est supprimée automatiquement 7 jours après sa création. Une connexion peut avoir au plus 200 remarques ouvertes.
 
+<a id="proposals"></a>
+
+## Propositions LLM
+
+En plus des remarques, un assistant LLM peut proposer une modification : la configuration d’un topic, un nouveau topic, davantage de partitions ou la réinitialisation des offsets d’un consumer group vide. Une proposition apparaît dans **Propositions LLM** de l’onglet **Constats** et sur l’écran du topic ou du groupe, avec la justification de l’assistant, une description de la modification et le nom du client. Rien n’est appliqué tout seul ; la suppression et la purge ne peuvent pas du tout être proposées.
+
+- **Ouvrir dans le formulaire** ouvre l’onglet de l’objet avec le formulaire habituel déjà rempli : l’éditeur de configuration avec sa vérification avant / après, le formulaire de création de topic, la boîte de dialogue des partitions ou la réinitialisation des offsets avec aperçu. Modifiez les valeurs si besoin et confirmez comme d’habitude ; sur une connexion prod, Glafira demande le nom de la connexion. Après une modification réussie, la proposition est marquée comme appliquée (avec des modifications si vous avez changé quelque chose), et l’assistant le voit dans `list_proposals`.
+- **Rejeter** ferme une proposition ; vous pouvez indiquer un motif, que l’assistant verra. **Rouvrir** rétablit une proposition rejetée.
+- Sur une connexion en lecture seule, la proposition est conservée, mais **Ouvrir dans le formulaire** est indisponible tant que vous ne désactivez pas la lecture seule dans le formulaire de connexion ; l’assistant en est aussi informé.
+- **Supprimer** supprime une proposition, **Supprimer toutes les propositions LLM** supprime toutes les propositions de la connexion. Une proposition est supprimée automatiquement 7 jours après sa création ; une connexion peut avoir au plus 50 propositions ouvertes.
+
 <a id="with-llm"></a>
 
 ## Avec un assistant LLM

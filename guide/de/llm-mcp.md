@@ -52,7 +52,8 @@ Der Assistent sieht:
 - Broker mit Hosts und Ports, den Controller;
 - Topics, Partitionen, Replikate, ISR, Offsets, die ungefähre Anzahl der Nachrichten;
 - Konfigurationen von Brokern und Topics, wobei Passwörter und andere geheime Werte verborgen sind;
-- Consumer Groups: Status, Protokoll, Koordinator, Mitglieder mit Client-ID, Host und `group.instance.id`, Zuweisungen, committete Offsets und Lag.
+- Consumer Groups: Status, Protokoll, Koordinator, Mitglieder mit Client-ID, Host und `group.instance.id`, Zuweisungen, committete Offsets und Lag;
+- seine Vorschläge und Ihre Entscheidung dazu: angewendet (unverändert oder mit Änderungen), abgelehnt mit Ihrem Grund, zurückgezogen.
 
 Der Assistent sieht keine Nachrichten in Topics, keine Bootstrap-Zeichenfolge und keine Sicherheitseinstellungen einer Verbindung, keine Passwörter, Zertifikate und zusätzlichen librdkafka-Eigenschaften, keinen Sendeverlauf und keine Vorlagen.
 
@@ -75,9 +76,11 @@ Um MCP ganz auszuschalten, deaktivieren Sie **MCP-Server zulassen**: Die Clients
 
 <a id="health"></a>
 
-## Clusterprüfung und Anmerkungen
+## Clusterprüfung, Anmerkungen und Vorschläge
 
 Der Assistent kann die integrierte Clusterprüfung von Glafira (Tool `health_check`) ausführen und sich auf ihre Befunde stützen. Er kann außerdem Anmerkungen zu Objekten hinterlassen: Sie erscheinen im Tab **Befunde** und auf den Bildschirmen von Topics und Gruppen, der Cluster wird dabei nicht geändert. Siehe [Clusterprüfung und Anmerkungen](health-check.md#with-llm).
+
+Der Assistent kann mit dem Tool `propose_change` auch eine Änderung vorschlagen: Topic-Konfiguration, ein neues Topic, mehr Partitionen oder das Zurücksetzen von Offsets. Der Vorschlag erscheint neben dem Objekt; Sie wenden ihn selbst in einem ausgefüllten Formular an oder lehnen ihn ab, und der Assistent sieht Ihre Entscheidung in `list_proposals`. Löschen und Leeren lassen sich nicht vorschlagen. Siehe [LLM-Vorschläge](health-check.md#proposals).
 
 <a id="troubleshooting"></a>
 
@@ -90,4 +93,4 @@ Der Client zeigt eine Meldung von Glafira:
 - `Glafira did not start the MCP server within 30 s` — starten Sie Glafira manuell und prüfen Sie den Status im Abschnitt **LLM-Assistenten (MCP)**;
 - `Invalid MCP token` — starten Sie den MCP-Server im Client neu: Glafira stellt bei jedem Start ein neues Token aus.
 
-Öffnen Sie unter macOS einen nicht signierten Beta-Build einmal auf dem üblichen Weg, sonst lässt das System den Start durch den Client möglicherweise nicht zu. Siehe [Installation unter macOS](getting-started.md#install-macos).
+Unter macOS ist die App signiert und notarisiert, daher ist vor dem ersten Start kein zusätzlicher Schritt nötig.

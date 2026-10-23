@@ -49,6 +49,17 @@ An LLM assistant connected over MCP (see [LLM assistants (MCP)](llm-mcp.md#how-i
 - **Delete** removes a note, and **Delete all LLM notes** removes every note of the connection.
 - A note is removed automatically 7 days after it was created. A connection can have at most 200 open notes.
 
+<a id="proposals"></a>
+
+## LLM proposals
+
+Besides notes, an LLM assistant can propose a change: topic configs, a new topic, more partitions or an offset reset of an empty consumer group. A proposal appears in **LLM proposals** on the **Findings** tab and on the topic or group screen, with the assistant's rationale, a description of the change and the client name. Nothing is applied by itself, and deleting or purging cannot be proposed at all.
+
+- **Open in form** opens the object's tab with the usual form already filled in: the config editor with its before/after review, the create-topic form, the partitions dialog or the offset reset with a preview. Edit the values if you like and confirm as usual; on a prod connection Glafira asks for the connection name. After a successful change the proposal is marked as applied (with edits, if you changed something), and the assistant sees that in `list_proposals`.
+- **Reject** closes a proposal; you may add a reason, and the assistant will see it. **Reopen** brings a rejected proposal back.
+- On a read-only connection the proposal is kept, but **Open in form** is unavailable until you clear read-only in the connection form; the assistant is told about that too.
+- **Delete** removes a proposal, **Delete all LLM proposals** removes every proposal of the connection. A proposal is removed automatically 7 days after it was created; a connection can have at most 50 open proposals.
+
 <a id="with-llm"></a>
 
 ## With an LLM assistant

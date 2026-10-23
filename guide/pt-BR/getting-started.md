@@ -16,27 +16,9 @@ Escolha o arquivo adequado ao seu Mac: `aarch64` para Apple silicon (M1 e poster
 
 Também é possível usar o instalador `.pkg`. Ele coloca o aplicativo em `/Applications` para todos os usuários.
 
-Os builds beta ainda não são assinados pela Apple, por isso o macOS bloqueia a primeira execução. Para permiti-la:
+Os builds são assinados pela Apple e notarizados, por isso o aplicativo abre imediatamente, sem avisos de segurança.
 
-1. Tente abrir o aplicativo uma vez e feche o aviso.
-2. Abra Ajustes do Sistema → Privacidade e Segurança.
-3. Role até a mensagem sobre o Glafira for Apache Kafka e clique em “Abrir Mesmo Assim”. Se for solicitado, confirme com sua senha.
-
-No macOS 14 e anteriores, você também pode clicar com o botão direito no aplicativo, escolher “Abrir” e depois “Abrir” novamente.
-
-Se isso não resolver, remova uma vez o atributo de quarentena no Terminal:
-
-```bash
-xattr -dr com.apple.quarantine "/Applications/Glafira for Apache Kafka.app"
-```
-
-Se o próprio `.dmg` baixado não abrir, remova antes o atributo dele:
-
-```bash
-xattr -d com.apple.quarantine ~/Downloads/Glafira_for_Apache_Kafka_*.dmg
-```
-
-As atualizações instaladas pelo próprio aplicativo não exigem essas etapas.
+Se mesmo assim o macOS informar que o aplicativo está danificado ou não pode ser verificado, o download está corrompido: baixe o `.dmg` ou o `.pkg` novamente na página de releases.
 
 <a id="install-windows"></a>
 

@@ -52,7 +52,8 @@ Glafira 可以作為 LLM 助理的閘道：Claude Desktop、Claude Code、Cursor
 - Broker 的主機和連接埠，以及控制器；
 - 主題、分區、複本、ISR、偏移量、訊息的大致數量；
 - Broker 和主題的設定，其中密碼和其他機密值會被隱藏；
-- 消費者群組：狀態、通訊協定、協調器、成員（含 client id、主機和 `group.instance.id`）、指派、已提交的偏移量和延遲。
+- 消費者群組：狀態、通訊協定、協調器、成員（含 client id、主機和 `group.instance.id`）、指派、已提交的偏移量和延遲；
+- 自己的建議以及你對它們的決定：已套用（原樣或已修改）、已拒絕（附你的原因）、已撤回。
 
 助理看不到主題中的訊息、連線的 Bootstrap 伺服器位址和安全性設定、密碼、憑證、librdkafka 的額外屬性、傳送歷程記錄和範本。
 
@@ -75,9 +76,11 @@ Glafira 可以作為 LLM 助理的閘道：Claude Desktop、Claude Code、Cursor
 
 <a id="health"></a>
 
-## 叢集檢查與註記
+## 叢集檢查、註記與建議
 
 助理可以執行 Glafira 內建的叢集檢查（`health_check` 工具），並以其檢查結果為依據。它還可以為物件留下註記：註記會顯示在**檢查結果**分頁以及主題與消費者群組畫面中，叢集不會被變更。請參閱[叢集檢查與註記](health-check.md#with-llm)。
+
+助理也可以透過 `propose_change` 工具提出變更建議：主題設定、新主題、增加分區或重設偏移量。建議會顯示在物件旁邊，由你在已填好的表單中自行套用或拒絕；助理隨後可在 `list_proposals` 中看到你的決定。刪除和清除無法被建議。請參閱[LLM 建議](health-check.md#proposals)。
 
 <a id="troubleshooting"></a>
 
@@ -90,4 +93,4 @@ Glafira 可以作為 LLM 助理的閘道：Claude Desktop、Claude Code、Cursor
 - `Glafira did not start the MCP server within 30 s`：請手動啟動 Glafira，並在「**LLM 助理（MCP）**」區段查看狀態；
 - `Invalid MCP token`：請在用戶端中重新啟動 MCP 伺服器，Glafira 每次啟動都會發出新的權杖。
 
-在 macOS 上，請先以一般方式開啟一次未簽署的 Beta build，否則系統可能不允許用戶端啟動它。請參閱[在 macOS 上安裝](getting-started.md#install-macos)。
+在 macOS 上，應用程式已簽署並經過公證，因此第一次啟動前不需要任何額外步驟。

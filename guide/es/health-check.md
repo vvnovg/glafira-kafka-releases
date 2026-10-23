@@ -49,6 +49,17 @@ Un asistente LLM conectado por MCP (consulta [Asistentes LLM (MCP)](llm-mcp.md#h
 - **Eliminar** elimina una nota y **Eliminar todas las notas LLM** elimina todas las notas de la conexión.
 - Una nota se elimina automáticamente 7 días después de crearse. Una conexión puede tener como máximo 200 notas abiertas.
 
+<a id="proposals"></a>
+
+## Propuestas LLM
+
+Además de notas, un asistente LLM puede proponer un cambio: la configuración de un topic, un topic nuevo, más particiones o el restablecimiento de los offsets de un consumer group vacío. La propuesta aparece en **Propuestas LLM** de la pestaña **Hallazgos** y en la pantalla del topic o del grupo, con la justificación del asistente, una descripción del cambio y el nombre del cliente. Nada se aplica por sí solo; eliminar y purgar no se pueden proponer en absoluto.
+
+- **Abrir en el formulario** abre la pestaña del objeto con el formulario habitual ya relleno: el editor de configuración con la revisión “antes → después”, el formulario de creación de topic, el diálogo de particiones o el restablecimiento de offsets con vista previa. Edita los valores si quieres y confirma como siempre; en una conexión prod, Glafira pide el nombre de la conexión. Tras un cambio correcto la propuesta se marca como aplicada (con cambios, si modificaste algo), y el asistente lo ve en `list_proposals`.
+- **Rechazar** cierra una propuesta; puedes indicar un motivo, y el asistente lo verá. **Reabrir** recupera una propuesta rechazada.
+- En una conexión de solo lectura la propuesta se conserva, pero **Abrir en el formulario** no está disponible hasta que quites la solo lectura en el formulario de conexión; al asistente también se le informa.
+- **Eliminar** elimina una propuesta, **Eliminar todas las propuestas LLM** elimina todas las propuestas de la conexión. Una propuesta se elimina automáticamente 7 días después de crearse; una conexión puede tener como máximo 50 propuestas abiertas.
+
 <a id="with-llm"></a>
 
 ## Con un asistente LLM

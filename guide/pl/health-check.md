@@ -49,6 +49,17 @@ Asystent LLM połączony przez MCP (zob. [Asystenci LLM (MCP)](llm-mcp.md#how-it
 - **Usuń** usuwa notatkę, a **Usuń wszystkie notatki LLM** usuwa wszystkie notatki połączenia.
 - Notatka jest usuwana automatycznie 7 dni po utworzeniu. Połączenie może mieć najwyżej 200 otwartych notatek.
 
+<a id="proposals"></a>
+
+## Propozycje LLM
+
+Oprócz notatek asystent LLM może zaproponować zmianę: konfigurację topiku, nowy topik, więcej partycji lub reset offsetów pustej grupy konsumentów. Propozycja pojawia się w sekcji **Propozycje LLM** na karcie **Ustalenia** oraz na ekranie topiku lub grupy — z uzasadnieniem asystenta, opisem zmiany i nazwą klienta. Nic nie jest stosowane samo z siebie, a usunięcia i czyszczenia nie da się zaproponować wcale.
+
+- **Otwórz w formularzu** otwiera kartę obiektu ze zwykłym, już wypełnionym formularzem: edytorem konfiguracji z porównaniem „było → będzie”, formularzem tworzenia topiku, oknem partycji lub resetem offsetów z podglądem. W razie potrzeby można poprawić wartości i potwierdzić jak zwykle; przy połączeniu prod Glafira poprosi o jego nazwę. Po udanej zmianie propozycja zostaje oznaczona jako zastosowana (ze zmianami, jeśli coś poprawiono), a asystent widzi to w `list_proposals`.
+- **Odrzuć** zamyka propozycję; można podać powód, który zobaczy asystent. **Otwórz ponownie** przywraca odrzuconą propozycję.
+- Przy połączeniu tylko do odczytu propozycja zostaje zachowana, ale **Otwórz w formularzu** jest niedostępne, dopóki tryb tylko do odczytu nie zostanie wyłączony w formularzu połączenia; asystent też się o tym dowiaduje.
+- **Usuń** usuwa propozycję, **Usuń wszystkie propozycje LLM** — wszystkie propozycje połączenia. Propozycja jest usuwana automatycznie 7 dni po utworzeniu; połączenie może mieć najwyżej 50 otwartych propozycji.
+
 <a id="with-llm"></a>
 
 ## Razem z asystentem LLM

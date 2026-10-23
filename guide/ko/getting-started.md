@@ -16,27 +16,9 @@ Mac에 맞는 파일을 선택하세요. Apple 실리콘(M1 이상)은 `aarch64`
 
 `.pkg` 설치 프로그램을 사용할 수도 있습니다. 이 경우 앱은 모든 사용자를 위해 `/Applications`에 설치됩니다.
 
-Beta 빌드는 아직 Apple 서명을 받지 않았기 때문에 macOS가 첫 실행을 차단합니다. 실행을 허용하려면:
+빌드는 Apple 서명과 공증을 받았기 때문에 앱이 보안 경고 없이 바로 열립니다.
 
-1. 앱을 한 번 열어 보고 경고를 닫습니다.
-2. '시스템 설정' → '개인정보 보호 및 보안'을 엽니다.
-3. 아래로 스크롤하여 Glafira for Apache Kafka에 관한 메시지를 찾고 '확인 없이 열기'를 클릭합니다. 암호를 묻는 경우 입력하여 확인합니다.
-
-macOS 14 이하에서는 대신 앱을 오른쪽 클릭하고 '열기'를 선택한 다음 다시 '열기'를 선택해도 됩니다.
-
-그래도 열리지 않으면 '터미널'에서 격리 플래그를 한 번 제거하세요:
-
-```bash
-xattr -dr com.apple.quarantine "/Applications/Glafira for Apache Kafka.app"
-```
-
-다운로드한 `.dmg` 파일 자체가 열리지 않으면 먼저 그 파일에서 플래그를 제거하세요:
-
-```bash
-xattr -d com.apple.quarantine ~/Downloads/Glafira_for_Apache_Kafka_*.dmg
-```
-
-앱 안에서 설치하는 업데이트에는 이 단계가 필요하지 않습니다.
+그래도 macOS에서 앱이 손상되었거나 확인할 수 없다고 표시되면 다운로드한 파일이 손상된 것입니다. 릴리스 페이지에서 `.dmg` 또는 `.pkg` 파일을 다시 다운로드하세요.
 
 <a id="install-windows"></a>
 

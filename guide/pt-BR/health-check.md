@@ -49,6 +49,17 @@ Um assistente LLM conectado por MCP (consulte [Assistentes LLM (MCP)](llm-mcp.md
 - **Excluir** exclui uma nota, e **Excluir todas as notas de LLM** exclui todas as notas da conexão.
 - Uma nota é excluída automaticamente 7 dias depois de criada. Uma conexão pode ter no máximo 200 notas abertas.
 
+<a id="proposals"></a>
+
+## Propostas de LLM
+
+Além de notas, um assistente LLM pode propor uma alteração: as configurações de um tópico, um novo tópico, mais partições ou a redefinição dos offsets de um consumer group vazio. A proposta aparece em **Propostas de LLM** na aba **Constatações** e na tela do tópico ou do grupo, com a justificativa do assistente, uma descrição da alteração e o nome do cliente. Nada é aplicado sozinho; exclusão e limpeza não podem ser propostas de forma alguma.
+
+- **Abrir no formulário** abre a aba do objeto com o formulário habitual já preenchido: o editor de configurações com a revisão “antes → depois”, o formulário de criação de tópico, o diálogo de partições ou a redefinição de offsets com pré-visualização. Edite os valores se quiser e confirme como de costume; em uma conexão prod, o Glafira pede o nome da conexão. Depois de uma alteração bem-sucedida a proposta é marcada como aplicada (com alterações, se você mudou algo), e o assistente vê isso em `list_proposals`.
+- **Rejeitar** fecha uma proposta; você pode informar um motivo, e o assistente o verá. **Reabrir** traz de volta uma proposta rejeitada.
+- Em uma conexão somente leitura a proposta é mantida, mas **Abrir no formulário** fica indisponível até você desmarcar somente leitura no formulário da conexão; o assistente também é informado disso.
+- **Excluir** exclui uma proposta, **Excluir todas as propostas de LLM** exclui todas as propostas da conexão. Uma proposta é excluída automaticamente 7 dias depois de criada; uma conexão pode ter no máximo 50 propostas abertas.
+
 <a id="with-llm"></a>
 
 ## Com um assistente LLM
